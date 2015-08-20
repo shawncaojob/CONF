@@ -1,0 +1,8 @@
+id,redirect_uri,scope,name,grant_type_id
+'prod_clmjobs','http://localhost','enrollmentservice_all','Credit Line Management Jobs','2'
+'prod_clmservice','prod_clmservice','enrollmentservice_all,creditprofileservice_all','Credit Line Management Service','2'
+'prod_creditprofileservice','http://localhost','enrollmentservice_all','Line Management Service','2'
+'prod_connect','http://localhost','enrollmentservice_all','Connect Service','2'
+'prod_connectjobs','http://localhost','connect_all','Connect Service Jobs','2'
+'prod_dataaggregation','http://localhost','connect_all','Data Agregation Service','2'
+'prod_decisionservice','http://localhost','openid,connect_all,reconnect_all,dataaggregation_all,alpacaapi_all,marketingapi_campaignR,decision-service-client,modelhostr_all','Decision Service','2'

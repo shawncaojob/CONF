@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#
+#This script generate 48 bytes string token for authnz user creation
+#
+
+# Declare Variables
+GENERATED_STRING=$(echo $(uuidgen) | base64)
+STRING_COUNT=$(echo $GENERATED_STRING |wc -m)
+MAX_LENGH=49
+
+# No need for this but it is useful sometime
+# echo GENERATED_STRING: $GENERATED_STRING		BYTE_COUNT=$STRING_COUNT
+
+echo ""
+if [ $STRING_COUNT -gt $MAX_LENGH ]
+then
+   echo "...Trying generate 48 byte string token"
+else
+   echo "...ERROR : GENERATED STRING $GENERATED_STRING only have $STRING_COUNT chars"
+   echo "...Exiting..."
+fi
+
+# Delete last char ,stop when 48 char left
+while [ $STRING_COUNT -gt $MAX_LENGH ]
+do
+   CHOP_STRING=$(echo $GENERATED_STRING |sed 's/.\{1\}$//')
+   STRING_COUNT=$(echo $CHOP_STRING |wc -m)
+   GENERATED_STRING=$CHOP_STRING   
+done
+echo ""
+echo SECRET_STRING: $CHOP_STRING
+echo BYTE_COUNT: $STRING_COUNT
+echo ""
